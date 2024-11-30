@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ConsumeMoneyTreeApi.Models.Employeemodel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.sState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sPhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtDoB)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.sState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sCountry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sPhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtDoB)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.iEmpId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.iEmpId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.iEmpId }, new { @onclick = "return confirmDelete();" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<script type="text/javascript">function confirmDelete() {
+        return confirm("Are you sure you want to delete this item?");
+    }</script>
